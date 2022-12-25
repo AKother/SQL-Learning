@@ -1,0 +1,26 @@
+mybatis-plus:
+configuration:
+map-underscore-to-camel-case: true
+cache-enabled: false
+log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+global-config:
+db-column-underline: true
+id-type: 0
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Akother721202
+    url: jdbc:mysql://localhost:3306/ml?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+  data:
+    redis:
+      database: 0
+      host: 192.168.10.134
+      port: 6379
+    session:
+      store-type: redis
+      timeout: 6000s
+
+server:
+  port: 8085
