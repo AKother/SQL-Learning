@@ -13,7 +13,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -34,6 +36,16 @@ public class QuestionController {
 
     @Resource
     QuestionMapper questionMapper;
+
+
+    @ApiOperation("每日一题")
+    @GetMapping(value = "/daily/question")
+    public Result dailyQuestion(@RequestParam("userId") String userId){
+        // TODO RabbitMQ
+        // 设置超时时间
+
+        return null;
+    }
 
     @ApiOperation("分页查询")
     @PostMapping (value = "/list")
