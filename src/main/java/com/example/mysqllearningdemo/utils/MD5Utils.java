@@ -14,4 +14,5 @@ public class MD5Utils {
         String newPassword = String.valueOf(new SimpleHash(hashAlgorithmName, password,salt,hashIterations));
         return newPassword;
     }
+
 }
