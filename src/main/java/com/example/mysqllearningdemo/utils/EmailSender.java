@@ -26,16 +26,24 @@ public class EmailSender {
         mailSender.send(msg);
     }
 
-    // 获得验证码
+    /**
+     * 获取验证码
+     */
     public String getEmailCode(){
         String emailCode = String.valueOf((int)(Math.random()*8998)+1000+1);
         return emailCode;
     }
 
+    /**
+     * 发送注册验证码
+     */
     public void sendRegisterEmail(String email, String emailCode){
         sendEmail(email,"SQL在线学习平台注册验证码","感谢您注册SQL在线学习平台，您的注册验证码为:"+emailCode);
     }
 
+    /**
+     * 密码重置验证码
+     */
     public void sendForgetEmail(String email,String emailCode){
         sendEmail(email,"SQL在线学习平台重置密码验证码","您重置密码的验证码为："+emailCode);
     }

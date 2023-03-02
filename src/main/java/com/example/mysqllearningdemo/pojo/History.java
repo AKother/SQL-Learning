@@ -1,6 +1,7 @@
 package com.example.mysqllearningdemo.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -16,12 +17,15 @@ public class History {
     @ApiModelProperty(value = "主键")
     private Integer id;
 
-    @ApiModelProperty(value = "用户ID")
-    private String userId;
 
+    @ApiModelProperty(value = "用户ID")
+    private Integer userId;
+
+    @TableField("`sql`")
     @ApiModelProperty(value = "sql语句")
     private String sql;
 
+    @TableField("`result`")
     @ApiModelProperty(value = "sql运行结果")
     private String result;
 

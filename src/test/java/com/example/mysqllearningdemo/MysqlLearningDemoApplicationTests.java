@@ -1,29 +1,31 @@
 package com.example.mysqllearningdemo;
 
+
+import com.alibaba.fastjson.JSON;
+import com.example.mysqllearningdemo.pojo.History;
+import com.example.mysqllearningdemo.service.impl.HistoryServiceImpl;
 import com.example.mysqllearningdemo.utils.RedisUtils;
-import com.google.common.collect.ImmutableMap;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootTest
 class MysqlLearningDemoApplicationTests {
 
     @Autowired
-    RedisUtils redisUtils;
+    HistoryServiceImpl historyService;
 
     @Test
-    void testRedis(){
-        redisUtils.set("key", "value");
-        System.out.println(redisUtils.get("key"));
-    }
-
-    @Test
-    void testNullPointerException(){
-        throw new NullPointerException();
+    void testSQL() {
+        History history = new History();
+        history.setSql("select * from xxx");
+        history.setResult("1");
+        history.setUserId(10);
+        history.setIsStar(0);
+        historyService.save(history);
     }
 
 }

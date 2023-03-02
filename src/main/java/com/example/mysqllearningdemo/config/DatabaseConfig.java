@@ -1,17 +1,14 @@
 package com.example.mysqllearningdemo.config;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-
 
 public class DatabaseConfig {
 
+    public final static String DATABASE_DRIVER = "com.mysql.cj.jdbc.Driver";
 
-    public static String SPRING_DATASOURCE_USERNAME = "root";
+    public final static String DATASOURCE_USERNAME = "root";
 
-    public static String SPRING_DATASOURCE_PASSWORD = "Akother721202";
+    public final static String DATASOURCE_PASSWORD = "Akother721202";
 
-    public static String SPRING_DATASOURCE_URL = "jdbc:mysql://localhost:3306/ml?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false";
+    public final static String DATASOURCE_URL = "jdbc:mysql://localhost:3306/ml?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false";
 
 }

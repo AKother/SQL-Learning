@@ -1,5 +1,6 @@
 package com.example.mysqllearningdemo.config;
 
+import com.example.mysqllearningdemo.utils.JwtUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -17,15 +18,6 @@ import java.util.ArrayList;
 @EnableSwagger2
 //Swagger的配置文件
 public class SwaggerConfig {
-    @Bean
-    public Docket docket(){
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.mysqllearningdemo.controller"))
-                .paths(PathSelectors.any())
-                .build();
-    }
 
     //配置Swagger的信息 apiInfo
     private ApiInfo apiInfo(){

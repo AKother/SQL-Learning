@@ -15,4 +15,6 @@ public class MD5Utils {
         return newPassword;
     }
 
+    public static void main(String[] args) {
+    }
 }

@@ -41,8 +41,7 @@ public class QuestionController {
     @ApiOperation("每日一题")
     @GetMapping(value = "/daily/question")
     public Result dailyQuestion(@RequestParam("userId") String userId){
-        // TODO RabbitMQ
-        // 设置超时时间
+        // TODO
 
         return null;
     }

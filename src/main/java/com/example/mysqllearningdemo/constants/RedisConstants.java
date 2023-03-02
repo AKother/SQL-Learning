@@ -1,4 +1,4 @@
-package com.example.mysqllearningdemo.common;
+package com.example.mysqllearningdemo.constants;
 
 public class RedisConstants {
 

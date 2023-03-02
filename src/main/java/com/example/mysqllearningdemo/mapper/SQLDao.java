@@ -4,12 +4,14 @@ import com.example.mysqllearningdemo.common.Result;
 import com.example.mysqllearningdemo.common.ResultCode;
 import com.example.mysqllearningdemo.config.DatabaseConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.sql.*;
 import java.util.*;
+
+import static com.example.mysqllearningdemo.config.DatabaseConfig.DATASOURCE_PASSWORD;
+import static com.example.mysqllearningdemo.config.DatabaseConfig.DATASOURCE_USERNAME;
 
 @Slf4j
 @Repository
@@ -24,11 +26,11 @@ public class SQLDao {
 
     public boolean createDatabase(String email) throws Exception {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(DatabaseConfig.DATABASE_DRIVER);
             //一开始必须填一个已经存在的数据库
-            conn = DriverManager.getConnection(DatabaseConfig.SPRING_DATASOURCE_URL,
-                    DatabaseConfig.SPRING_DATASOURCE_USERNAME,
-                    DatabaseConfig.SPRING_DATASOURCE_PASSWORD);
+            conn = DriverManager.getConnection(DatabaseConfig.DATASOURCE_URL,
+                    DatabaseConfig.DATASOURCE_USERNAME,
+                    DatabaseConfig.DATASOURCE_PASSWORD);
             conn.setAutoCommit(false);
             stat = conn.createStatement();
             //为该用户新建一个数据库 库名字为 ml+邮箱
@@ -56,8 +58,8 @@ public class SQLDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/ml" + email + "?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false",
-                    "root",
-                    "Akother721202");
+                    DatabaseConfig.DATASOURCE_USERNAME,
+                    DatabaseConfig.DATASOURCE_PASSWORD);
         }catch (Exception e) {
             log.error("SQLDao, selectExecute:{}",e);
             resultList = new ArrayList<>();

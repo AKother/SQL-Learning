@@ -7,12 +7,17 @@ global-config:
 db-column-underline: true
 id-type: 0
 
+server:
+  port: 8085
+
 spring:
+  application:
+    name: mysql-learning-demo
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: Akother721202
-    url: jdbc:mysql://localhost:3306/ml?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/ml?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
   data:
     redis:
       database: 0
@@ -22,6 +27,6 @@ spring:
       store-type: redis
       timeout: 6000s
 
-server:
-  port: 8085
-
+logging:
+  level:
+    com.example.mysqllearningdemo: trace

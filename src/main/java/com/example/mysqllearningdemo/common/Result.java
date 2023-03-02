@@ -55,6 +55,16 @@ public class Result implements Serializable {
         setSuccess(isSuccess());
     }
 
+    public Result(Boolean isSuccess, String msg){
+        if(isSuccess){
+            this.code = ResultCode.Success.getCode();
+            this.message = msg;
+        }else{
+            this.code = ResultCode.Failure.getCode();
+            this.message = msg;
+        }
+    }
+
     public Result(Exception e) {
         this.code = ResultCode.Failure.getCode();
         this.message = e.getMessage();
